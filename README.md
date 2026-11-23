@@ -6,6 +6,8 @@ Na versão 1.0, o catálogo tem **nove verificações de LGPD e quatro de licenc
 
 **1.0.0 · em testes em projetos de produção · revisão jurídica especializada pendente.** As evidências de avaliação disponíveis usam casos sintéticos. O levantamento preparatório foi feito por IA. Profissionais habilitados em proteção de dados ou licenciamento podem [manifestar interesse em revisar](https://github.com/Dev-Wesley-13/br-dev-compliance/issues/new?template=revisao-juridica.md). [Escopo e entregas da revisão](docs/REVISAO-PROFISSIONAL.md).
 
+O [plano de evolução](ROADMAP.md) apresenta os próximos módulos, os critérios para ampliar a cobertura e a proposta de financiamento contínuo.
+
 ## Instalar
 
 Baixe o ZIP do seu cliente nos [arquivos da versão 1.0.0](https://github.com/Dev-Wesley-13/br-dev-compliance/releases/tag/v1.0.0). Compare o SHA-256 com SHA256SUMS.txt e extraia o ZIP numa pasta própria. Os três pacotes usam o gerenciador do cliente.
