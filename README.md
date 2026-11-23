@@ -2,7 +2,14 @@
 
 O BR Dev Compliance ajuda desenvolvedores a investigar riscos à luz da legislação brasileira durante o planejamento e a revisão de software. Quando encontra um indício, o plugin mostra a evidência, as fontes consultadas e o que ainda precisa ser verificado. Você decide se quer continuar, corrigir ou parar.
 
-Na versão 1.0, o catálogo tem **nove verificações de LGPD e quatro de licenciamento de software**. Uma mesma verificação pode envolver outras leis. Ao examinar uma rotina que apaga registros de acesso, por exemplo, o auditor pode consultar o Marco Civil da Internet para investigar uma possível obrigação de guarda. Ao revisar um produto de acesso provável por crianças e adolescentes, pode consultar o ECA Digital. O relatório indica o que foi examinado dentro desse recorte. A identificação de todas as leis aplicáveis a um projeto continua fora da cobertura da 1.0. [Verificações](plugins/br-dev-compliance/referencias/verificacoes.md) · [Fontes de consulta](plugins/br-dev-compliance/referencias/fontes.md)
+**O que consigo verificar hoje?** Antes de escrever código, peça uma revisão do plano. Em um sistema existente, indique a entrega ou os arquivos que deseja examinar. A versão 1.0 oferece **nove verificações de proteção de dados e quatro de licenças de software**. Por exemplo, ela investiga se um checkout expõe o CPF nos logs, se o analytics envia identificadores a terceiros e se o pacote distribuído preserva os avisos de licença. Conforme a questão, pode consultar também o Marco Civil da Internet, o ECA Digital, a Lei do Software e a Lei de Direitos Autorais. [Ver as 13 perguntas, os fundamentos e os limites por território](docs/ALCANCE.md)
+
+| Se o seu projeto é… | A versão 1.0 investiga… | O plano de evolução acrescenta… |
+| --- | --- | --- |
+| Uma loja que pretende vender cigarros pela internet | Os dados dos compradores, o rastreamento e as licenças dos componentes | Identificação da restrição sanitária à venda online ainda no planejamento e verificação do catálogo e do fluxo de pedidos na entrega |
+| Uma autoescola que agenda aulas em BH e na capital paulista | O tratamento de dados de alunos, instrutores e proprietários | Regras distintas para licenciamento estadual e circulação municipal, recomendação de produto e retomada da decisão aceita na próxima tarefa |
+
+**Estados e municípios.** A 1.0 ainda não tem módulos próprios estaduais, distritais ou municipais. A meta é investigar normas de qualquer esfera relevantes para cada projeto e mostrar quais foram examinadas, em que território e em qual edição. [Exemplos completos e fontes oficiais](docs/ALCANCE.md#dois-casos-de-uso-para-a-evolução) · [Roadmap](ROADMAP.md)
 
 **1.0.0 · em testes em projetos de produção · revisão jurídica especializada pendente.** As evidências de avaliação disponíveis usam casos sintéticos. O levantamento preparatório foi feito por IA. Profissionais habilitados em proteção de dados ou licenciamento podem [manifestar interesse em revisar](https://github.com/Dev-Wesley-13/br-dev-compliance/issues/new?template=revisao-juridica.md). [Escopo e entregas da revisão](docs/REVISAO-PROFISSIONAL.md).
 
