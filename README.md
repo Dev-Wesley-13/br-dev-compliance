@@ -1,8 +1,19 @@
 # BR Dev Compliance
 
-Plugin open source que ajuda desenvolvedores brasileiros a encontrar indícios de risco de LGPD e de licenciamento em planos, código e entregas. Cada achado traz a evidência, o que foi consultado, o que falta verificar e uma sugestão. Você decide se quer continuar, corrigir ou parar.
+O BR Dev Compliance é um plugin para Claude Code, Codex e Antigravity. Você descreve o que quer desenvolver ou indica o código que quer revisar. A IA examina esse material em busca de riscos de proteção de dados e de problemas no uso de software de terceiros. Para cada indício, ela aponta o trecho do plano ou do código, informa quais fontes conseguiu consultar e sugere uma correção. Você decide como agir.
+
+**O que consigo verificar hoje?** A versão 1.0 oferece **nove verificações relacionadas à LGPD e quatro de licenças de software**. Se você planeja guardar o CPF a cada erro do checkout, o plugin pode questionar essa coleta antes da implementação. Se a loja já existe, ele pode examinar os arquivos autorizados para localizar o registro. Também investiga, por exemplo, o envio de identificadores a terceiros e a preservação de avisos de licença no pacote distribuído. Conforme a pergunta, pode consultar o Marco Civil da Internet, o ECA Digital, a Lei do Software e a Lei de Direitos Autorais. [Consultar as 13 verificações e seus limites](docs/ALCANCE.md)
+
+| Se o seu projeto é… | A versão 1.0 investiga… | O plano de evolução acrescenta… |
+| --- | --- | --- |
+| Uma loja que pretende vender cigarros pela internet | Os dados dos compradores, o rastreamento e as licenças dos componentes | Identificação da restrição sanitária à venda online ainda no planejamento e verificação do catálogo e do fluxo de pedidos na entrega |
+| Uma autoescola que agenda aulas em BH e na capital paulista | O tratamento de dados de alunos, instrutores e proprietários | Regras distintas para licenciamento estadual e circulação municipal, recomendação de produto e retomada da decisão aceita na próxima tarefa |
+
+**Estados e municípios.** A 1.0 ainda não tem módulos próprios estaduais, distritais ou municipais. A meta é investigar normas de qualquer esfera relevantes para cada projeto e mostrar quais foram examinadas, em que território e em qual edição. [Exemplos completos e fontes oficiais](docs/ALCANCE.md#dois-casos-de-uso-para-a-evolução) · [Roadmap](ROADMAP.md)
 
 **1.0.0 · em testes em projetos de produção · revisão jurídica especializada pendente.** As evidências de avaliação disponíveis usam casos sintéticos. O levantamento preparatório foi feito por IA. Profissionais habilitados em proteção de dados ou licenciamento podem [manifestar interesse em revisar](https://github.com/Dev-Wesley-13/br-dev-compliance/issues/new?template=revisao-juridica.md). [Escopo e entregas da revisão](docs/REVISAO-PROFISSIONAL.md).
+
+O [plano de evolução](ROADMAP.md) apresenta os próximos módulos, os critérios para ampliar a cobertura e a proposta de financiamento contínuo.
 
 ## Instalar
 
@@ -20,7 +31,7 @@ No Claude, escolha manual, automático ou desligado na configuração do plugin.
 
 > Audite somente este plano para LGPD-01. Queremos contar os erros de validação guardando o CPF em cada falha. Mantenha o resultado no chat.
 
-O auditor investiga por que o contador precisa desse identificador e pode sugerir uma métrica agregada. Se a fonte oficial estiver indisponível, a limitação aparece no resultado. O catálogo cobre [nove verificações de LGPD e quatro de licenciamento](plugins/br-dev-compliance/referencias/verificacoes.md). A triagem técnica não certifica conformidade.
+O auditor investiga por que o contador precisa desse identificador e pode sugerir uma métrica agregada. Se a fonte oficial estiver indisponível, a limitação aparece no resultado. A triagem técnica não certifica conformidade.
 
 ## Dados e histórico
 
