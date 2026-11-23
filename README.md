@@ -1,6 +1,8 @@
 # BR Dev Compliance
 
-Plugin open source que ajuda desenvolvedores brasileiros a encontrar indícios de risco de LGPD e de licenciamento em planos, código e entregas. Cada achado traz a evidência, o que foi consultado, o que falta verificar e uma sugestão. Você decide se quer continuar, corrigir ou parar.
+O BR Dev Compliance ajuda desenvolvedores a investigar riscos à luz da legislação brasileira durante o planejamento e a revisão de software. Quando encontra um indício, o plugin mostra a evidência, as fontes consultadas e o que ainda precisa ser verificado. Você decide se quer continuar, corrigir ou parar.
+
+Na versão 1.0, o catálogo tem **nove verificações de LGPD e quatro de licenciamento de software**. Uma mesma verificação pode envolver outras leis. Ao examinar uma rotina que apaga registros de acesso, por exemplo, o auditor pode consultar o Marco Civil da Internet para investigar uma possível obrigação de guarda. Ao revisar um produto de acesso provável por crianças e adolescentes, pode consultar o ECA Digital. O relatório indica o que foi examinado dentro desse recorte. A identificação de todas as leis aplicáveis a um projeto continua fora da cobertura da 1.0. [Verificações](plugins/br-dev-compliance/referencias/verificacoes.md) · [Fontes de consulta](plugins/br-dev-compliance/referencias/fontes.md)
 
 **1.0.0 · em testes em projetos de produção · revisão jurídica especializada pendente.** As evidências de avaliação disponíveis usam casos sintéticos. O levantamento preparatório foi feito por IA. Profissionais habilitados em proteção de dados ou licenciamento podem [manifestar interesse em revisar](https://github.com/Dev-Wesley-13/br-dev-compliance/issues/new?template=revisao-juridica.md). [Escopo e entregas da revisão](docs/REVISAO-PROFISSIONAL.md).
 
@@ -20,7 +22,7 @@ No Claude, escolha manual, automático ou desligado na configuração do plugin.
 
 > Audite somente este plano para LGPD-01. Queremos contar os erros de validação guardando o CPF em cada falha. Mantenha o resultado no chat.
 
-O auditor investiga por que o contador precisa desse identificador e pode sugerir uma métrica agregada. Se a fonte oficial estiver indisponível, a limitação aparece no resultado. O catálogo cobre [nove verificações de LGPD e quatro de licenciamento](plugins/br-dev-compliance/referencias/verificacoes.md). A triagem técnica não certifica conformidade.
+O auditor investiga por que o contador precisa desse identificador e pode sugerir uma métrica agregada. Se a fonte oficial estiver indisponível, a limitação aparece no resultado. A triagem técnica não certifica conformidade.
 
 ## Dados e histórico
 
