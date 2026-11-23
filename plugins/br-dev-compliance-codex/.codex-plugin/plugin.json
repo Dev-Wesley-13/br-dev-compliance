@@ -1,0 +1,14 @@
+{
+  "name": "br-dev-compliance",
+  "version": "1.0.0",
+  "description": "Revisão técnica de planos, código e cobertura de LGPD e licenças.",
+  "author": { "name": "Wesley Fonseca" },
+  "license": "Apache-2.0",
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "BR Dev Compliance",
+    "shortDescription": "Auditoria de LGPD e licenças no Codex",
+    "defaultPrompt": ["Revise este plano com BR Dev Compliance antes da implementação."]
+  }
+}

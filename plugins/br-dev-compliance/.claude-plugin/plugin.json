@@ -1,0 +1,16 @@
+{
+  "name": "br-dev-compliance",
+  "version": "1.0.0",
+  "description": "Revisa planos e entregas com evidências, fontes e histórico de cobertura. Integração para Windows.",
+  "author": { "name": "Wesley Fonseca" },
+  "license": "Apache-2.0",
+  "userConfig": {
+    "modo": {
+      "type": "string",
+      "title": "Acionamento das auditorias",
+      "description": "automatico adiciona lembretes e grava estado operacional em runtime; manual usa somente comandos; desligado desativa a auditoria.",
+      "options": ["automatico", "manual", "desligado"],
+      "required": true
+    }
+  }
+}

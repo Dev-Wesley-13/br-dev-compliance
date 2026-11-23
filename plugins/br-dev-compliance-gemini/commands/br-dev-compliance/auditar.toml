@@ -1,0 +1,8 @@
+description = "Solicita revisão de LGPD e licenças em um plano ou entrega delimitada."
+prompt = """
+Ative a skill br-dev-compliance-auditar e siga seu procedimento.
+Use o escopo e os caminhos indicados no pedido abaixo. Se faltarem, pergunte antes de ler.
+Se a skill estiver indisponível ou a ativação for recusada, informe que a revisão não foi executada.
+
+Pedido: {{args}}
+"""

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "br-dev-compliance",
+  "displayName": "BR Dev Compliance",
+  "version": "1.0.0",
+  "description": "Revisão assistida de LGPD e licenças em planos e entregas, com evidências e fontes sob demanda.",
+  "author": { "name": "Wesley Fonseca" },
+  "license": "Apache-2.0",
+  "logo": "assets/icon.png",
+  "suggestedPrompts": [
+    "/br-dev-compliance-auditar Revise este plano para LGPD e licenças; preserve os arquivos e deixe minha decisão pendente."
+  ]
+}

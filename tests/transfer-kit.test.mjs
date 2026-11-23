@@ -1,0 +1,48 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
+import {execFileSync, spawnSync} from 'node:child_process';
+
+const root=fileURLToPath(new URL('../',import.meta.url));
+const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+test('a regenerated transfer kit pins the selected candidate and rejects rewritten metadata', {skip:process.platform!=='win32'}, t=>{
+  const output=path.resolve(root,'.test-output');
+  const cleanup=directory=>{
+    assert.equal(path.dirname(path.resolve(directory)),output);
+    assert.match(path.basename(directory),/^(rc-|release-1\.0\.0-|agkit-)/);
+    t.after(()=>fs.rmSync(directory,{recursive:true,force:true}));
+    return directory;
+  };
+  const run=(tool,args)=>execFileSync('pwsh.exe',['-NoLogo','-NoProfile','-NonInteractive','-File',path.join(root,'tools',tool),...args],{encoding:'utf8',timeout:30000}).trim();
+  const templates=['verificar-kit.mjs','verificar-kit.ps1'].map(n=>path.join(root,'tools/antigravity-kit',n));
+  const originalHashes=templates.map(n=>hash(fs.readFileSync(n)));
+  const candidate=cleanup(execFileSync(process.execPath,[path.join(root,'tools/build-release-candidate.mjs')],{encoding:'utf8',timeout:30000}).trim());
+  const release=cleanup(run('package-release-candidate.ps1',['-CandidateRoot',candidate]));
+  const kit=cleanup(run('build-antigravity-transfer-kit.ps1',['-ReleaseRoot',release]));
+  const workspace=path.join(kit,'workspace');
+  const report=JSON.parse(fs.readFileSync(path.join(kit,'kit.json')));
+  assert.equal(report.kit_revision,4);
+  const metadata=JSON.parse(fs.readFileSync(path.join(release,'release.json')));
+  assert.equal(report.inventory_sha256,metadata.inventory_sha256);
+  assert.equal(report.original_plugin_zip_sha256,metadata.archives.find(a=>a.client==='antigravity').sha256);
+  assert.deepEqual(templates.map(n=>hash(fs.readFileSync(n))),originalHashes);
+  const verify=()=>spawnSync(process.execPath,[path.join(workspace,'verificar-kit.mjs')],{encoding:'utf8',timeout:15000});
+  const verified=verify();
+  assert.equal(verified.status,0,verified.stderr||verified.stdout);
+  assert.equal(JSON.parse(verified.stdout).inventory_sha256,report.inventory_sha256);
+  assert.equal(JSON.parse(verified.stdout).zip_sha256,report.original_plugin_zip_sha256);
+  const inventoryFile=path.join(workspace,'inventory.json');
+  const rewritten=Buffer.concat([fs.readFileSync(inventoryFile),Buffer.from('\n')]);
+  fs.writeFileSync(inventoryFile,rewritten);
+  const releaseFile=path.join(workspace,'release.json');
+  const modified=JSON.parse(fs.readFileSync(releaseFile));
+  modified.inventory_sha256=hash(rewritten);
+  fs.writeFileSync(releaseFile,JSON.stringify(modified));
+  const refused=verify();
+  assert.equal(refused.status,1);
+  assert.equal(JSON.parse(refused.stdout).status,'blocked');
+  assert.match(JSON.parse(refused.stdout).error,/Inventory hash differs/);
+});

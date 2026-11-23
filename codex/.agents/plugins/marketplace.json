@@ -1,0 +1,12 @@
+{
+  "name": "br-dev-compliance-local",
+  "interface": { "displayName": "BR Dev Compliance" },
+  "plugins": [
+    {
+      "name": "br-dev-compliance",
+      "source": { "source": "local", "path": "./plugins/br-dev-compliance" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}

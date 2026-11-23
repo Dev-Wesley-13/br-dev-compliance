@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      { "hooks": [
+        {
+          "type": "command",
+          "command": "true",
+          "commandWindows": "pwsh.exe -NoLogo -NoProfile -NonInteractive -File \"${PLUGIN_ROOT}/scripts/checkpoint.ps1\"",
+          "timeout": 12,
+          "statusMessage": "Preparando checkpoint de auditoria"
+        }
+      ] }
+    ],
+    "Stop": [
+      { "hooks": [
+        {
+          "type": "command",
+          "command": "printf '{}'",
+          "commandWindows": "pwsh.exe -NoLogo -NoProfile -NonInteractive -File \"${PLUGIN_ROOT}/scripts/checkpoint.ps1\"",
+          "timeout": 12,
+          "statusMessage": "Verificando checkpoint de entrega"
+        }
+      ] }
+    ]
+  }
+}

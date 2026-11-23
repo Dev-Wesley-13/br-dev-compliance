@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "ag-g01",
+  "generated_at": "2026-11-18T18:17:13Z",
+  "mode": "plano",
+  "status": "parcial",
+  "review_level": "tecnica_sem_revisao_juridica_independente",
+  "scope": {
+    "examined": [
+      "plano"
+    ],
+    "excluded": [
+      "LGPD-02 a LGPD-09 e LIC-01 a LIC-04 fora do escopo solicitado.",
+      "Arquivos do projeto não incluídos nas leituras autorizadas."
+    ],
+    "limitations": [
+      "Análise restrita ao plano fictício informado no prompt e à verificação LGPD-01.",
+      "Pesquisa na internet e leitura de outros arquivos desautorizadas no teste; nenhuma fonte normativa externa consultada."
+    ]
+  },
+  "coverage": [
+    {
+      "check_id": "LGPD-01",
+      "status": "indicio",
+      "rationale": "O plano prevê registrar e-mail e CPF em cada erro de validação apenas para contar falhas, utilizando dados pessoais identificáveis além do estritamente necessário para uma métrica agregada."
+    }
+  ],
+  "sources": [],
+  "findings": [
+    {
+      "id": "F-001",
+      "check_id": "LGPD-01",
+      "confidence": "forte",
+      "impact": "medio",
+      "summary": "Registro desnecessário de e-mail e CPF em logs de erro de validação cujo objetivo é apenas contar falhas.",
+      "evidence": [
+        {
+          "location": "plano",
+          "description": "Plano fictício: registrar e-mail e CPF em cada erro de validação somente para contar falhas."
+        }
+      ],
+      "rationale": "Conforme descrito na evidência em plano, a coleta de identificadores diretos (e-mail e CPF) para finalidade meramente estatística de contagem de erros excede o mínimo necessário ao objetivo declarado.",
+      "citations": [],
+      "missing_context": [
+        "Confirmar na implementação ou artefato real se o logger persiste e-mail e CPF ou apenas contadores agregados.",
+        "Confirmar se existe necessidade operacional distinta de contagem ou mecanismo de descarte/anonimização prévia."
+      ],
+      "suggestion": "Substituir o registro de e-mail e CPF por contadores numéricos ou métricas agregadas sem dados pessoais."
+    }
+  ],
+  "decision": "pendente"
+}

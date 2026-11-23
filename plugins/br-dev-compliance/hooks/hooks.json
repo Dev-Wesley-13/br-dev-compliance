@@ -1,0 +1,57 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      { "hooks": [
+        {
+          "type": "command",
+          "command": "powershell.exe",
+          "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "${CLAUDE_PLUGIN_ROOT}/scripts/checkpoint.ps1"],
+          "timeout": 10,
+          "onFailure": "continue"
+        }
+      ] }
+    ],
+    "Stop": [
+      { "hooks": [
+        {
+          "type": "command",
+          "command": "powershell.exe",
+          "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "${CLAUDE_PLUGIN_ROOT}/scripts/checkpoint.ps1"],
+          "timeout": 10,
+          "onFailure": "continue"
+        }
+      ] }
+    ],
+    "SubagentStop": [
+      { "matcher": "^br-dev-compliance:auditor$", "hooks": [
+        {
+          "type": "command",
+          "command": "powershell.exe",
+          "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "${CLAUDE_PLUGIN_ROOT}/scripts/audit-output.ps1"],
+          "timeout": 10,
+          "onFailure": "continue"
+        }
+      ] }
+    ],
+    "PostToolUse": [
+      { "matcher": "^Skill$", "hooks": [
+        {
+          "type": "command",
+          "command": "powershell.exe",
+          "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "${CLAUDE_PLUGIN_ROOT}/scripts/audit-output.ps1"],
+          "timeout": 10,
+          "onFailure": "continue"
+        }
+      ] },
+      { "matcher": "^ExitPlanMode$", "hooks": [
+        {
+          "type": "command",
+          "command": "powershell.exe",
+          "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "${CLAUDE_PLUGIN_ROOT}/scripts/checkpoint.ps1"],
+          "timeout": 10,
+          "onFailure": "continue"
+        }
+      ] }
+    ]
+  }
+}

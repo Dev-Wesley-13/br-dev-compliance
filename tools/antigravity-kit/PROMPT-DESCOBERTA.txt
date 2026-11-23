@@ -1,0 +1,17 @@
+Esta etapa verifica somente o kit e a descoberta do plugin nativo BR Dev Compliance 1.0.0 no Antigravity Desktop/IDE. Não inicie auditoria, skill de auditoria, subagente, instalação de programas ou comandos de gerenciamento do CLI.
+
+Abra exclusivamente a pasta NOVA extraída do kit, que contém LEIA-ME.md, inventory.json e .agents/plugins/br-dev-compliance/plugin.json. Ela deve ficar fora da pasta antiga br-dev-complience. Não use nem altere o piloto anterior.
+
+Escolha um único verificador disponível e permitido pelo host. Prefira Node já instalado, se verificar-kit.mjs estiver presente:
+node .\verificar-kit.mjs
+Se Node não estiver disponível, o verificador PowerShell permanece uma opção somente quando a política do host permitir:
+powershell.exe -NoLogo -NoProfile -NonInteractive -File .\verificar-kit.ps1
+Execute uma única opção, uma vez, e preserve a saída real. Se o PowerShell já foi bloqueado nesta máquina, não repita essa tentativa. Não instale programas ou altere políticas para executar a verificação.
+
+Estão autorizadas as leituras do kit pelo verificador. Node não executa PowerShell, comandos externos ou consultas de CLI. Se usar o verificador PowerShell permitido, também estão autorizadas a resolução de agy no PATH e somente a consulta de existência de %LOCALAPPDATA%\agy\bin\agy.exe fora do workspace. Ambos preservam arquivos, PATH e instalações. Se houver bloqueio do host ou falha de integridade, informe e pare.
+
+Se a integridade passar, confira na interface de personalizações ou no contexto nativo do host se foram reconhecidos: plugin br-dev-compliance 1.0.0, skill br-dev-compliance-auditar e agente br-dev-compliance-auditor. Não invoque a skill nem o agente. Informe a origem de cada confirmação: interface, contexto nativo ou apenas arquivo. Arquivos presentes não bastam para declarar descoberta pelo cliente; o que não puder verificar fica pendente.
+
+Se agy não estiver no PATH, registre apenas a pendência do TERMINAL e continue esta conferência do Desktop/IDE. Não instale CLI ou altere PATH nesta etapa. Não copie nada para .agents/skills e não modifique o plugin.
+
+Devolva: saída integral do verificador; plugin/skill/agente reconhecidos ou pendentes, com a origem da evidência; modelo selecionado; versão do aplicativo se realmente exposta; bloqueios. Se a versão só estiver no menu Ajuda/Help > Sobre/About, peça ao usuário que a copie. Encerre aqui e aguarde nossa conferência antes do próximo teste.

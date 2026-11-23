@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "p4-codex-fonte-01",
+  "generated_at": "2026-11-14T13:47:19.7543083Z",
+  "mode": "plano",
+  "status": "parcial",
+  "review_level": "tecnica_sem_revisao_juridica_independente",
+  "scope": {
+    "examined": [
+      "plano"
+    ],
+    "excluded": [
+      "Código, configuração, operação e outras verificações."
+    ],
+    "limitations": [
+      "Plano fictício sem implementação verificada. A consulta cobre o art. 6º, III e não é revisão jurídica independente."
+    ]
+  },
+  "coverage": [
+    {
+      "check_id": "LGPD-01",
+      "status": "indicio",
+      "rationale": "O plano pretende incluir e-mail e CPF em todo log de falha para contar erros de validação."
+    }
+  ],
+  "sources": [
+    {
+      "id": "S-001",
+      "kind": "norma",
+      "location": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm",
+      "status": "indisponivel",
+      "accessed_at": null,
+      "version": null,
+      "attempts": 1,
+      "fragments": [],
+      "limitation": "A ferramenta redirecionou para a página inicial do Planalto e não encontrou o dispositivo."
+    },
+    {
+      "id": "S-002",
+      "kind": "norma",
+      "location": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html",
+      "status": "consultada",
+      "accessed_at": "2026-11-14T13:47:19.7543083Z",
+      "version": "Texto atualizado da Lei nº 13.709, de 14 de agosto de 2018, na Câmara dos Deputados",
+      "attempts": 1,
+      "fragments": [
+        {
+          "locator": "art. 6º, III",
+          "excerpt": "limitação do tratamento ao mínimo necessário para a realização de suas finalidades"
+        }
+      ],
+      "limitation": "Horário registrado pelo host após a leitura pela ferramenta web. Não representa data de vigência nem a idade do cache."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-001",
+      "check_id": "LGPD-01",
+      "confidence": "forte",
+      "impact": "medio",
+      "summary": "O plano inclui identificadores nos logs para uma finalidade de contagem.",
+      "evidence": [
+        {
+          "location": "plano",
+          "description": "Registrar o cadastro completo, incluindo e-mail e CPF, em cada erro de validação para contabilizar falhas."
+        }
+      ],
+      "rationale": "A finalidade declarada é agregada. O plano não justifica por que a contagem precisaria guardar identificadores.",
+      "citations": [
+        {
+          "source_id": "S-002",
+          "locator": "art. 6º, III",
+          "location_status": "localizada",
+          "support_status": "sustenta",
+          "claim_kind": "obrigacao",
+          "rationale": "Se esses identificadores forem dados pessoais tratados nesse fluxo, o princípio exige limitar o tratamento ao necessário para a finalidade. Isso sustenta questionar o uso de e-mail e CPF para contar falhas. Uma finalidade adicional precisaria ser examinada separadamente."
+        }
+      ],
+      "missing_context": [
+        "Confirmação da implementação e dos campos efetivamente registrados.",
+        "Eventuais outras finalidades e justificativas para os campos."
+      ],
+      "suggestion": "Considere contabilizar códigos de erro ou totais sem registrar e-mail e CPF."
+    }
+  ],
+  "decision": "pendente"
+}

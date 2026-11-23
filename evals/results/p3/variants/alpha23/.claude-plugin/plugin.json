@@ -1,0 +1,16 @@
+{
+  "name": "br-dev-compliance",
+  "version": "0.1.0-alpha.23",
+  "description": "Revisa planos e entregas com evidências, fontes e histórico de cobertura. Alpha para Windows.",
+  "author": { "name": "BR Dev Compliance contributors" },
+  "license": "MIT",
+  "userConfig": {
+    "modo": {
+      "type": "string",
+      "title": "Acionamento das auditorias",
+      "description": "automatico adiciona lembretes e grava estado operacional em runtime; manual usa somente comandos; desligado desativa a auditoria.",
+      "options": ["automatico", "manual", "desligado"],
+      "required": true
+    }
+  }
+}

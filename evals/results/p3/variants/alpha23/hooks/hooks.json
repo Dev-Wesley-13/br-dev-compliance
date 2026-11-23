@@ -1,0 +1,37 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      { "hooks": [
+        {
+          "type": "command",
+          "command": "powershell.exe",
+          "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "${CLAUDE_PLUGIN_ROOT}/scripts/checkpoint.ps1"],
+          "timeout": 10,
+          "onFailure": "continue"
+        }
+      ] }
+    ],
+    "Stop": [
+      { "hooks": [
+        {
+          "type": "command",
+          "command": "powershell.exe",
+          "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "${CLAUDE_PLUGIN_ROOT}/scripts/checkpoint.ps1"],
+          "timeout": 10,
+          "onFailure": "continue"
+        }
+      ] }
+    ],
+    "PostToolUse": [
+      { "matcher": "^ExitPlanMode$", "hooks": [
+        {
+          "type": "command",
+          "command": "powershell.exe",
+          "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "${CLAUDE_PLUGIN_ROOT}/scripts/checkpoint.ps1"],
+          "timeout": 10,
+          "onFailure": "continue"
+        }
+      ] }
+    ]
+  }
+}

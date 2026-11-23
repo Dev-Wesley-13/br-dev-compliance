@@ -1,0 +1,9 @@
+# Keep reviewed package bytes and recorded evidence hashes stable across checkouts.
+/.claude-plugin/** -text
+/codex/** -text
+/plugins/** -text
+/evals/results/** -text
+/tools/validate-result.mjs -text
+/LICENSE -text
+/NOTICE -text
+/TRADEMARKS.md -text

@@ -1,0 +1,12 @@
+{
+  "name": "br-dev-compliance-dev",
+  "metadata": { "description": "Marketplace local do plugin BR Dev Compliance." },
+  "owner": { "name": "Wesley Fonseca" },
+  "plugins": [
+    {
+      "name": "br-dev-compliance",
+      "source": "./plugins/br-dev-compliance",
+      "description": "Revisão técnica assistida de LGPD e licenças para projetos brasileiros."
+    }
+  ]
+}

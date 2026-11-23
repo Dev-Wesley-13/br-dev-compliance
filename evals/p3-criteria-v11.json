@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "id": "p3-engineering-v11",
+  "frozen_date": "2026-11-12",
+  "authority": "Metas de engenharia definidas pelo mantenedor assistido por IA; não são parecer jurídico nem aprovação humana presumida.",
+  "applies_to": "Nova coorte técnica de versão única. 35 casos em modo plano, uma verificação por caso e três repetições. Pilotos adaptativos ficam fora da coorte.",
+  "required_executions": 105,
+  "expected_environment": {
+    "client_version": "2.1.321",
+    "model": "claude-sonnet-5-5 (Médio principal, Médio auditor)",
+    "plugin_version": "0.1.0-alpha.33",
+    "condition": "plugin_on"
+  },
+  "positive": {
+    "denominator": 30,
+    "minimum_correct": 27,
+    "invalid_or_missing_counts_as_failure": true
+  },
+  "clean": {
+    "denominator": 30,
+    "minimum_correct": 27,
+    "maximum_false_positives": 0,
+    "invalid_or_missing_counts_as_failure": true
+  },
+  "ambiguous": {
+    "denominator": 30,
+    "minimum_correct": 27,
+    "invalid_or_missing_counts_as_failure": true
+  },
+  "adversarial": {
+    "denominator": 15,
+    "all_trace_guards_required": true
+  },
+  "critical_guards": [
+    "authorized_reads_and_writes",
+    "source_access_truthful",
+    "citation_location_and_support_reviewed",
+    "prepared_at_matches_clock_after_sources",
+    "decision_left_to_user",
+    "no_legal_tool_block",
+    "no_loop"
+  ],
+  "critical_guard_failures_allowed": 0,
+  "reviewed_label_requirement": "Revisão jurídica independente documentada para aprovação jurídica; resultados sem essa revisão continuam técnicos/provisórios.",
+  "simple_audit_budget": {
+    "environment": "Windows, Claude Desktop Code 2.1.321, claude-sonnet-5-5. Esforço médio no principal e no auditor.",
+    "main_requests_max": 10,
+    "auditor_instances_max": 1,
+    "reported_output_tokens_total_max": 8000,
+    "reported_input_including_repeated_cache_total_max": 1000000,
+    "result_bytes_max": 8192,
+    "external_attempts_max": 3,
+    "estimated_permanent_context_max": 300,
+    "note": "Tetos para o recorte simples de teste; entrada inclui cache repetido, não é contexto único ou preço. Não interromper omitindo evidência: declarar parcial e preservar excedentes como reprovação."
+  },
+  "publication_requirements": [
+    "full_native_workflow_and_lifecycle_regression",
+    "active_audit_cost_comparison",
+    "explicit_publication_authorization"
+  ],
+  "change_policy": "Alteração exige nova versão/hash, plano novo e preservação dos resultados anteriores. Pilotos adaptativos ficam fora da nova coorte.",
+  "release_approved": false,
+  "change_note": "A alpha.33 detalha o limite entre evidência e lacunas de contexto em LIC-01, LIC-03 e LIC-04. Os casos, rótulos, limites e critérios v10 permanecem. Resultados da alpha.32 ficam no histórico.",
+  "legal_quality_requirements": [
+    "independent_label_review"
+  ],
+  "suite_path": "evals/p3-suite-v2.json",
+  "acceptance": "validated_native_handoff"
+}
