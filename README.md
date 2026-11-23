@@ -1,8 +1,8 @@
 # BR Dev Compliance
 
-O BR Dev Compliance ajuda desenvolvedores a investigar riscos à luz da legislação brasileira durante o planejamento e a revisão de software. Quando encontra um indício, o plugin mostra a evidência, as fontes consultadas e o que ainda precisa ser verificado. Você decide se quer continuar, corrigir ou parar.
+O BR Dev Compliance é um plugin para Claude Code, Codex e Antigravity. Você descreve o que quer desenvolver ou indica o código que quer revisar. A IA examina esse material em busca de riscos de proteção de dados e de problemas no uso de software de terceiros. Para cada indício, ela aponta o trecho do plano ou do código, informa quais fontes conseguiu consultar e sugere uma correção. Você decide como agir.
 
-**O que consigo verificar hoje?** Antes de escrever código, peça uma revisão do plano. Em um sistema existente, indique a entrega ou os arquivos que deseja examinar. A versão 1.0 oferece **nove verificações de proteção de dados e quatro de licenças de software**. Por exemplo, ela investiga se um checkout expõe o CPF nos logs, se o analytics envia identificadores a terceiros e se o pacote distribuído preserva os avisos de licença. Conforme a questão, pode consultar também o Marco Civil da Internet, o ECA Digital, a Lei do Software e a Lei de Direitos Autorais. [Ver as 13 perguntas, os fundamentos e os limites por território](docs/ALCANCE.md)
+**O que consigo verificar hoje?** A versão 1.0 oferece **nove verificações relacionadas à LGPD e quatro de licenças de software**. Se você planeja guardar o CPF a cada erro do checkout, o plugin pode questionar essa coleta antes da implementação. Se a loja já existe, ele pode examinar os arquivos autorizados para localizar o registro. Também investiga, por exemplo, o envio de identificadores a terceiros e a preservação de avisos de licença no pacote distribuído. Conforme a pergunta, pode consultar o Marco Civil da Internet, o ECA Digital, a Lei do Software e a Lei de Direitos Autorais. [Consultar as 13 verificações e seus limites](docs/ALCANCE.md)
 
 | Se o seu projeto é… | A versão 1.0 investiga… | O plano de evolução acrescenta… |
 | --- | --- | --- |
